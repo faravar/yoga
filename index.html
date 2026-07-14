@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مسیر آرامش | دوره‌های یوگا و مدیتیشن</title>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/jalaali-js@1.2.6/dist/jalaali.min.js"></script>
+<style>
+   html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+   
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; /* ارتفاع فوتر خود را اینجا مشخص کنید */
+}
+
+
+.site-footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: auto; /* اگر مایلید همیشه پایین صفحه بماند */
+    font-size: 0.9rem;
+    color: var(--text-dim, #a79fbb); /* استفاده از متغیر متنی که در کدها دارید */
+}
+
+.site-footer a {
+    color: var(--teal); /* یا هر رنگ شاخصی مثل گلد یا تال که در متغیرها تعریف کردید */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.site-footer a:hover {
+    color: #ffffff; /* تغییر رنگ هنگام هاور */
+    text-decoration: underline;
+    text-decoration: none;
+}
+  :root{
+    --bg:#100e0c;
+    --card:#1d1812;
+    --card2:#161209;
+    --gold:#c9a24b;
+    --gold-soft:#8a723a;
+    --sage:#6f8f74;
+    --ivory:#ece4d3;
+    --line: rgba(201,162,75,0.18);
+  }
+  *{font-family:'Vazirmatn', sans-serif;}
+  body{
+    background:
+      radial-gradient(1200px 600px at 15% -10%, rgba(201,162,75,0.08), transparent 60%),
+      radial-gradient(1000px 500px at 100% 10%, rgba(111,143,116,0.07), transparent 55%),
+      var(--bg);
+    color:var(--ivory);
+    min-height:100vh;
+  }
+  .brass-divider{ height:1px; background:linear-gradient(to left, transparent, var(--gold-soft), transparent); }
+  .card{
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent 40%), var(--card);
+    border:1px solid var(--line);
+    border-radius:1.1rem;
+  }
+  .subcard{
+    background:var(--card2);
+    border:1px solid var(--line);
+    border-radius:0.9rem;
+  }
+  .clickable{ cursor:pointer; user-select:none; }
+  .accordion-body{ max-height:0; overflow:hidden; transition:max-height 0.5s cubic-bezier(0.22,1,0.36,1); }
+  .accordion-body.open{ max-height:6000px; }
+  .ex-detail{ max-height:0; overflow:hidden; transition:max-height 0.4s ease; }
+  .ex-detail.open{ max-height:800px; }
+  .justify{ text-align:justify; text-justify:inter-word; }
+  .chip{
+    font-size:0.7rem; padding:0.15rem 0.6rem; border-radius:999px;
+    border:1px solid var(--line); color:var(--gold); background:rgba(201,162,75,0.06);
+    white-space:nowrap;
+  }
+  input[type=checkbox]{
+    appearance:none; -webkit-appearance:none;
+    width:1.6rem; height:1.6rem; border-radius:0.5rem;
+    border:1.5px solid var(--gold-soft); background:rgba(0,0,0,0.2);
+    cursor:pointer; position:relative; flex-shrink:0; transition:all 0.2s ease;
+  }
+  input[type=checkbox]:checked{ background:var(--gold); border-color:var(--gold); }
+  input[type=checkbox]:checked::after{
+    content:'✓'; position:absolute; inset:0; display:flex;
+    align-items:center; justify-content:center; color:#100e0c; font-size:1rem; font-weight:700;
+  }
+  .done-strike{ text-decoration:line-through; opacity:0.5; }
+  ::-webkit-scrollbar{width:6px;}
+  ::-webkit-scrollbar-thumb{background:var(--gold-soft); border-radius:4px;}
+  .mandala-ring circle{ transition:stroke-dashoffset 0.6s ease; }
+  .chevron{ transition:transform 0.3s ease; }
+  .chevron.rot{ transform:rotate(180deg); }
+  .bar-track{ height:6px; border-radius:999px; background:rgba(255,255,255,0.06); overflow:hidden; }
+  .bar-fill{ height:100%; border-radius:999px; background:linear-gradient(to left, var(--gold), #e8caa0); transition:width 0.5s ease; }
+  input[type=date]{
+    background:rgba(0,0,0,0.25); border:1px solid var(--line); border-radius:0.6rem;
+    color:var(--ivory); font-size:0.75rem; padding:0.35rem 0.5rem; color-scheme:dark;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .accordion-body, .ex-detail, .chevron, .mandala-ring circle, .bar-fill{ transition:none !important; }
+  }
+</style>
+</head>
+<body class="antialiased">
+
+<div class="max-w-2xl mx-auto px-4 pb-24 pt-8">
+
+  <header class="mb-8">
+    <div class="flex items-center justify-between mb-6">
+      <div>
+        <p class="text-xs tracking-widest text-[color:var(--gold)] mb-1" id="jalaliDate">—</p>
+        <h1 class="text-2xl font-extrabold text-[color:var(--ivory)]">مسیر آرامش</h1>
+        <p class="text-sm text-[color:var(--ivory)]/50 mt-1">سه دوره‌ی یوگا و مدیتیشن، از شروع تا تعمیق</p>
+      </div>
+      <div class="relative w-20 h-20 flex items-center justify-center">
+        <svg class="mandala-ring w-20 h-20 -rotate-90" viewBox="0 0 80 80">
+          <circle cx="40" cy="40" r="34" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="6"/>
+          <circle id="progressCircle" cx="40" cy="40" r="34" fill="none" stroke="url(#goldGrad)" stroke-width="6" stroke-linecap="round" stroke-dasharray="213.6" stroke-dashoffset="213.6"/>
+          <defs>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#c9a24b"/>
+              <stop offset="100%" stop-color="#e8caa0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span id="progressPct" class="absolute text-sm font-bold text-[color:var(--gold)]">۰٪</span>
+      </div>
+    </div>
+    <div class="brass-divider"></div>
+  </header>
+
+  <div id="courses"></div>
+
+  <footer class="mt-10 text-center text-xs text-[color:var(--ivory)]/30 leading-6">
+    <div class="brass-divider mb-4"></div>
+    هر دوره یک قدم است، نه یک مسابقه
+  
+  <p> <a href="https://www.karimzaadeh.ir" target="_blank" rel="noopener noreferrer">فرهاد کریم‌زاده | Farhad Karimzadeh</a></p></footer>
+</div>
+
+<script>
+const COURSES = [
+  {
+    id: 'beginner7',
+    title: 'دوره مقدماتی: هفت روز اول',
+    description: 'برای کسی که تا امروز هیچ تجربه‌ای از یوگا یا مدیتیشن نداشته. هر روز چند حرکت ساده و یک تمرین ذهنی کوتاه دارد. لازم نیست همه‌چیز را در یک روز انجام دهید؛ با سرعت خودتان پیش بروید.',
+    days: [
+      { title:'آشنایی و تنفس', subtitle:'روز اول: یاد گرفتن نفس کشیدن آگاهانه', exercises:[
+        { name:'تنفس شکمی (دیافراگمی)', duration:'۵ دقیقه',
+          howto:'بنشینید یا دراز بکشید. یک دست را روی سینه و دست دیگر را روی شکم بگذارید. از بینی نفس بکشید طوری که فقط دست روی شکم بالا برود، نه دست روی سینه. چهار ثانیه دم، دو ثانیه مکث، شش ثانیه بازدم آرام از دهان. این چرخه را برای ۵ دقیقه تکرار کنید.',
+          benefit:'این پایه‌ای‌ترین تمرین تنفسی یوگاست و به سیستم عصبی پیام «امنیت» می‌دهد؛ ضربان قلب و اضطراب را در همان جلسه‌ی اول کاهش می‌دهد.' },
+        { name:'حالت کودک (بالاسانا)', duration:'۲ دقیقه',
+          howto:'روی زانوها بنشینید، انگشتان شست پا را به هم بچسبانید و زانوها را کمی باز کنید. باسن را روی پاشنه‌ها بنشانید و تنه را رو به جلو، روی زمین دراز کنید، دست‌ها را کشیده جلو ببرید و پیشانی را روی زمین یا یک بالش بگذارید.',
+          benefit:'کمر و شانه‌ها را باز می‌کند و به‌عنوان یک وضعیت استراحتی، ذهن را از تنش روزمره جدا می‌کند.' },
+        { name:'گربه–گاو (مارجاریاسانا–بیتیلاسانا)', duration:'۸ تکرار',
+          howto:'روی دست و زانو بایستید. با دم، کمر را گود کنید و سر را بالا بیاورید. با بازدم، کمر را قوس داده و سر و دنبالچه را به داخل جمع کنید. این چرخه را هماهنگ با نفس، ۸ بار تکرار کنید.',
+          benefit:'ستون فقرات را نرم و منعطف می‌کند و هماهنگی بین حرکت و نفس را که اساس یوگاست تمرین می‌دهد.' },
+        { name:'مدیتیشن نشسته‌ی ذهن‌آگاهی', duration:'۵ دقیقه',
+          howto:'چهارزانو یا روی صندلی بنشینید، ستون فقرات صاف، چشم‌ها بسته. تمام توجه‌تان را روی احساس ورود و خروج هوا از بینی بگذارید. هر بار که ذهن پرت شد، به‌آرامی توجه را به نفس برگردانید.',
+          benefit:'اولین قدم در ساختن «عضله‌ی توجه» است؛ تمرینی که پایه‌ی همه‌ی مدیتیشن‌های بعدی خواهد بود.' }
+      ]},
+      { title:'باز کردن بدن', subtitle:'روز دوم: کشش ملایم برای بدن خشک', exercises:[
+        { name:'حالت کوه (تاداسانا)', duration:'۱ دقیقه',
+          howto:'بایستید، پاها به عرض لگن، وزن یکنواخت روی هر دو پا. شانه‌ها به عقب و پایین، تاج سر رو به آسمان. دست‌ها کنار بدن آرام. چند نفس عمیق بکشید.',
+          benefit:'به بازسازی حس ایستادن صحیح کمک می‌کند و پایه‌ی تمام حالت‌های ایستاده در یوگاست.' },
+        { name:'کشش کناری ایستاده', duration:'هر طرف ۳۰ ثانیه',
+          howto:'در حالت تاداسانا بایستید. دست راست را بالای سر ببرید و تنه را به آرامی به چپ خم کنید. کشش پهلوی راست را حس کنید، سپس طرف مقابل را تکرار کنید.',
+          benefit:'عضلات پهلو و بین دنده‌ها را باز می‌کند و ظرفیت تنفس عمیق را افزایش می‌دهد.' },
+        { name:'سگ رو به پایین (آدو موکا شواناسانا)', duration:'۳۰ تا ۴۵ ثانیه',
+          howto:'از چهاردست‌وپا شروع کنید، باسن را بالا و عقب ببرید تا بدن یک مثلث معکوس بسازد. پاشنه‌ها رو به زمین، دست‌ها کاملاً باز، سر بین بازوها آویزان.',
+          benefit:'همزمان همسترینگ، ساق پا، شانه و کمر را می‌کشد و یکی از پرکاربردترین حالت‌های یوگاست.' },
+        { name:'مدیتیشن تنفس شمارشی', duration:'۵ دقیقه',
+          howto:'بنشینید و چشم‌ها را ببندید. با هر بازدم در ذهن بشمارید: یک تا ده، سپس دوباره از یک شروع کنید. اگر عدد را گم کردید، بدون ناراحتی از یک شروع کنید.',
+          benefit:'شمارش یک لنگرگاه ساده برای ذهن‌های شلوغ است و تمرکز را ملموس‌تر می‌کند.' }
+      ]},
+      { title:'تعادل و تمرکز', subtitle:'روز سوم: ثبات در بدن، ثبات در ذهن', exercises:[
+        { name:'حالت درخت (وریکشاسانا)', duration:'هر پا ۳۰ ثانیه',
+          howto:'روی پای چپ بایستید، کف پای راست را روی ساق یا ران پای چپ بگذارید (نه روی زانو). دست‌ها جلوی سینه یا بالای سر. نگاه به یک نقطه‌ی ثابت. سپس طرف مقابل.',
+          benefit:'تعادل فیزیکی را تقویت می‌کند و چون تمرکز کامل نیاز دارد، ذهن را از افکار مزاحم دور نگه می‌دارد.' },
+        { name:'جنگجوی یک (ویراباسانا I)', duration:'هر طرف ۳۰ ثانیه',
+          howto:'یک قدم بلند به جلو با پای راست بردارید. زانوی راست تا ۹۰ درجه خم، پای چپ صاف و پاشنه محکم روی زمین. دست‌ها بالای سر، تنه رو به جلو. سپس طرف چپ.',
+          benefit:'پاها و مرکز بدن را قدرتمند می‌کند و حس اراده و استحکام درونی را تمرین می‌دهد.' },
+        { name:'مدیتیشن اسکن بدن', duration:'۷ دقیقه',
+          howto:'دراز بکشید یا بنشینید. توجه را از نوک انگشتان پا شروع و به‌آرامی بالا بیاورید: ساق، زانو، ران، شکم، سینه، دست‌ها، شانه، گردن، صورت. هر تنشی را فقط مشاهده کنید.',
+          benefit:'ارتباط بین ذهن و بدن را تقویت می‌کند و برای کاهش تنش فیزیکی انباشته بسیار مؤثر است.' }
+      ]},
+      { title:'انعطاف ستون فقرات', subtitle:'روز چهارم: نرمی در کمر و قفسه‌ی سینه', exercises:[
+        { name:'کبرا (بوجانگاسانا)', duration:'۳ تکرار، هر بار ۱۵ ثانیه',
+          howto:'دمر بخوابید، دست‌ها زیر شانه‌ها. با دم سینه را از زمین بلند کنید، آرنج‌ها کمی خمیده. باسن روی زمین باقی می‌ماند. با بازدم برگردید.',
+          benefit:'قسمت بالای کمر را تقویت و باز می‌کند و پس از ساعت‌ها نشستن، قوز را جبران می‌کند.' },
+        { name:'حالت پل (ستو باندهاسانا)', duration:'۳ تکرار، هر بار ۲۰ ثانیه',
+          howto:'به پشت دراز بکشید، زانوها خم و کف پاها نزدیک باسن. با دم باسن را بلند کنید تا خط مورب از زانو تا شانه بسازد. دست‌ها زیر بدن یا کنار بدن.',
+          benefit:'عضلات پشت ران و باسن را تقویت می‌کند و قفسه‌ی سینه را به‌طور ملایم باز می‌کند.' },
+        { name:'چرخش نشسته', duration:'هر طرف ۳۰ ثانیه',
+          howto:'چهارزانو بنشینید. دست راست پشت خود روی زمین، دست چپ روی زانوی راست. با بازدم تنه را به راست بچرخانید، نگاه از روی شانه به عقب. سپس طرف مقابل.',
+          benefit:'ستون فقرات را در جهت چرخشی حرکت می‌دهد، حرکتی که در زندگی روزمره کمتر انجام می‌شود.' },
+        { name:'مدیتیشن صدا محور', duration:'۶ دقیقه',
+          howto:'بنشینید و چشم‌ها را ببندید. به‌جای تمرکز روی نفس، فقط به صداهای اطراف گوش دهید، بدون نام‌گذاری یا قضاوت آن‌ها.',
+          benefit:'روشی جایگزین برای تمرکز است که برای افرادی که تمرکز روی نفس برایشان سخت است بسیار کاربردی است.' }
+      ]},
+      { title:'قدرت آرام', subtitle:'روز پنجم: ساختن استقامت بدون فشار', exercises:[
+        { name:'ملخ (سالاباسانا)', duration:'۳ تکرار، هر بار ۱۵ ثانیه',
+          howto:'دمر بخوابید، دست‌ها کنار بدن. با دم همزمان سر، سینه و پاها را کمی از زمین بلند کنید. عضلات پشت را منقبض نگه دارید.',
+          benefit:'کل عضلات پشت بدن را بدون نیاز به وزنه تقویت می‌کند و وضعیت بدنی را بهبود می‌دهد.' },
+        { name:'تخته (پلانک) روی زانو', duration:'۳ تکرار، هر بار ۲۰ ثانیه',
+          howto:'روی زانو و دست قرار بگیرید، آرنج‌ها را زیر شانه‌ها صاف کنید و زانوها را کمی عقب ببرید تا خط صاف از سر تا زانو بسازد. شکم منقبض.',
+          benefit:'نسخه‌ی ملایم پلانک است که مرکز بدن را بدون فشار زیاد به مچ دست تقویت می‌کند.' },
+        { name:'حالت کودک کشیده', duration:'۲ دقیقه',
+          howto:'مانند روز اول، اما دست‌ها را کمی به یک سمت بکشید تا کشش بیشتری در پهلوی مخالف حس کنید، سپس طرف دیگر.',
+          benefit:'بعد از تمرین‌های قدرتی، بدن را بازیابی و عضلات کار کرده را کشش می‌دهد.' },
+        { name:'مدیتیشن شکرگزاری', duration:'۵ دقیقه',
+          howto:'بنشینید و چشم‌ها را ببندید. به سه چیز ساده که امروز باعث خوشحالی‌تان شده فکر کنید. روی احساسی که این افکار در بدن‌تان ایجاد می‌کنند تمرکز کنید.',
+          benefit:'تمرین‌های تمرکز بر شکرگزاری در پژوهش‌های روان‌شناسی با افزایش احساس رضایت درونی مرتبط دانسته شده‌اند.' }
+      ]},
+      { title:'آرامش عمیق', subtitle:'روز ششم: رها کردن تنش‌های نگه‌داشته‌شده', exercises:[
+        { name:'نیم‌کبوتر (اردا کاپوتاسانا)', duration:'هر طرف ۴۵ ثانیه',
+          howto:'از چهاردست‌وپا، زانوی راست را جلو بیاورید و پشت مچ دست راست قرار دهید. پای چپ را کاملاً به عقب بکشید و صاف کنید. تنه را رو به جلو پایین بیاورید.',
+          benefit:'یکی از عمیق‌ترین حرکات برای باز کردن لگن است، ناحیه‌ای که استرس زیادی در آن ذخیره می‌شود.' },
+        { name:'پروانه‌ی نشسته (باددا کوناسانا)', duration:'۱ دقیقه',
+          howto:'بنشینید، کف پاها را به هم بچسبانید و زانوها را به‌آرامی باز کنید. پاها را در دست بگیرید و ستون فقرات را صاف نگه دارید.',
+          benefit:'داخل ران‌ها و لگن را باز می‌کند و معمولاً حالت آرامش‌بخشی برای پایان جلسه است.' },
+        { name:'پاها روی دیوار (ویپاریتا کارانی)', duration:'۵ دقیقه',
+          howto:'کنار دیوار به پشت دراز بکشید و پاها را روی دیوار قرار دهید تا بدن زاویه‌ی L بسازد. دست‌ها کنار بدن، کف رو به بالا. کاملاً رها شوید.',
+          benefit:'گردش خون وریدی پاها را بهبود می‌دهد و از نظر عصبی یکی از آرام‌بخش‌ترین حالت‌های یوگاست.' },
+        { name:'یوگا نیدرای کوتاه', duration:'۸ دقیقه',
+          howto:'به پشت دراز بکشید، چشم‌ها بسته. به‌ترتیب توجه‌تان را به هر عضو بدن ببرید و در ذهن بگویید «رها شو». هدف رسیدن به حالتی بین بیداری و خواب است.',
+          benefit:'نوعی استراحت هدایت‌شده‌ی عمیق است که چند دقیقه از آن معادل ساعت‌ها خواب سبک عمل می‌کند.' }
+      ]},
+      { title:'جمع‌بندی و سکوت', subtitle:'روز هفتم: یک‌پارچه کردن هفته', exercises:[
+        { name:'سلام به خورشید ساده‌شده', duration:'۳ دور',
+          howto:'بایستید → دست‌ها بالای سر با دم → خم به جلو با بازدم → نیم‌خیز با دم → سگ رو به پایین با بازدم → چهاردست‌وپا → دوباره خم به جلو → بازگشت به ایستاده با دم.',
+          benefit:'خلاصه‌ای از تمام حرکاتی است که در شش روز گذشته یاد گرفتید و بدن را کامل گرم می‌کند.' },
+        { name:'چرخش لگن نشسته', duration:'۱ دقیقه',
+          howto:'چهارزانو بنشینید، دست‌ها روی زانوها. تنه را به آرامی دایره‌وار در جهت عقربه‌ها و سپس برعکس بچرخانید، مانند هم زدن یک کاسه‌ی بزرگ.',
+          benefit:'کمر پایین را نرم می‌کند و انتقال ملایمی به سمت آرام‌سازی نهایی ایجاد می‌کند.' },
+        { name:'شاواسانا (حالت جسد)', duration:'۱۰ دقیقه',
+          howto:'به پشت دراز بکشید، پاها کمی باز، دست‌ها کنار بدن با کف رو به بالا. چشم‌ها را ببندید و اجازه دهید وزن بدن کاملاً روی زمین رها شود.',
+          benefit:'با وجود سادگی ظاهری، یکی از مهم‌ترین حالت‌های یوگاست: تمرین رها کردن کامل کنترل.' },
+        { name:'مدیتیشن سکوت کامل', duration:'۱۰ دقیقه',
+          howto:'بنشینید، بدون هیچ تکنیک خاصی. نه نفس را بشمارید، نه به بدن توجه کنید. اجازه دهید هرچه در ذهن می‌گذرد، بگذرد، بدون دنبال کردن یا مقاومت.',
+          benefit:'جمع‌بندی تمام تمرین‌های هفته است؛ توانایی نشستن با خود، بدون نیاز به هیچ ابزار یا تکنیکی.' }
+      ]}
+    ]
+  },
+  {
+    id: 'deepen14',
+    title: 'دوره تعمیق: چهارده روز',
+    description: 'برای زمانی که دوره‌ی مقدماتی را تمام کرده‌اید. حرکات کمی چالشی‌تر، تنفس‌های پیشرفته‌تر و مدیتیشن‌های تخصصی‌تری معرفی می‌شود تا تمرین روزانه‌تان عمق بیشتری پیدا کند.',
+    days: [
+      { title:'مرور با نفس عمیق‌تر', subtitle:'روز اول', exercises:[
+        { name:'سلام به خورشید کامل', duration:'۴ دور', howto:'از ایستاده شروع کنید، خم به جلو، نیم‌خیز، چاتورانگا، سگ رو به بالا، سگ رو به پایین، بازگشت به ایستاده. هر حرکت با یک نفس هماهنگ است.', benefit:'کل بدن را در یک توالی واحد گرم و فعال می‌کند و پایه‌ی جریان‌های پیشرفته‌تر است.' },
+        { name:'جنگجوی دو (ویراباسانا II)', duration:'هر طرف ۴۰ ثانیه', howto:'پاها باز، زانوی جلو ۹۰ درجه خم، پای عقب صاف. دست‌ها به دو طرف کشیده در امتداد شانه، نگاه از روی دست جلو.', benefit:'استقامت پا و تمرکز ذهنی هم‌زمان را تقویت می‌کند.' },
+        { name:'تنفس اوجایی', duration:'۵ دقیقه', howto:'از بینی نفس بکشید در حالی که پشت گلو را کمی منقبض می‌کنید تا صدایی شبیه امواج دریا ایجاد شود. دم و بازدم را به یک اندازه طولانی نگه دارید.', benefit:'گرمای درونی بدن را بالا می‌برد و توجه را در طول تمرین‌های فیزیکی سخت‌تر حفظ می‌کند.' }
+      ]},
+      { title:'قدرت مرکز بدن', subtitle:'روز دوم', exercises:[
+        { name:'تخته کامل', duration:'۳ تکرار، هر بار ۳۰ ثانیه', howto:'روی دست و نوک پا قرار بگیرید، بدن یک خط صاف از سر تا پاشنه. شکم و باسن منقبض، نگاه به پایین.', benefit:'مرکز بدن، شانه و مچ دست را هم‌زمان تقویت می‌کند.' },
+        { name:'قایق (ناواسانا)', duration:'۳ تکرار، هر بار ۲۰ ثانیه', howto:'بنشینید، زانوها خم، کمی به عقب تکیه دهید و پاها را از زمین بلند کنید تا بدن حرف V بسازد. دست‌ها جلو کشیده و موازی زمین.', benefit:'عضلات عمقی شکم را که در حرکات روزمره کمتر درگیر می‌شوند فعال می‌کند.' },
+        { name:'مدیتیشن مانترای ساده', duration:'۵ دقیقه', howto:'بنشینید و یک کلمه یا صدای کوتاه را در ذهن یا زیر لب با هر بازدم تکرار کنید تا ذهن یک نقطه‌ی تمرکز ثابت پیدا کند.', benefit:'تکرار کلامی یکی از قدیمی‌ترین روش‌های آرام کردن ذهن پرحرف است.' }
+      ]},
+      { title:'تعادل پیشرفته', subtitle:'روز سوم', exercises:[
+        { name:'عقاب (گارودآسانا)', duration:'هر طرف ۳۰ ثانیه', howto:'روی پای چپ بایستید، پای راست را دور پای چپ بپیچید. بازوی راست را زیر بازوی چپ ببرید و کف دست‌ها را به هم بچسبانید. کمی زانو خم و تمرکز به یک نقطه.', benefit:'تعادل، تمرکز و انعطاف شانه را هم‌زمان درگیر می‌کند.' },
+        { name:'نیم‌ماه (اردا چاندراسانا)', duration:'هر طرف ۳۰ ثانیه', howto:'از جنگجوی دو، وزن را به پای جلو منتقل کنید، دست جلو را روی زمین یا بلوک بگذارید و پای عقب را صاف بالا بیاورید. دست دیگر رو به سقف.', benefit:'ثبات یک‌پا و قدرت لگن را به‌طور جدی به چالش می‌کشد.' }
+      ]},
+      { title:'باز کردن شانه و سینه', subtitle:'روز چهارم', exercises:[
+        { name:'حالت شتر (اوستراسانا)', duration:'۲ تکرار، هر بار ۲۰ ثانیه', howto:'روی زانو بنشینید، زانوها به عرض لگن. دست‌ها را به پاشنه‌ها برسانید و سینه را رو به سقف باز کنید، سر آرام به عقب. اگر رسیدن به پاشنه سخت است، دست‌ها را روی کمر نگه دارید.', benefit:'قفسه‌ی سینه و شانه‌هایی را که از نشستن طولانی جمع شده‌اند به‌شدت باز می‌کند.' },
+        { name:'ماهی (ماتسیاسانا)', duration:'۱ دقیقه', howto:'به پشت دراز بکشید، دست‌ها زیر باسن. با فشار آرنج‌ها روی زمین، سینه را بالا و سر را به آرامی به عقب رها کنید.', benefit:'مکمل حالت شتر است و علاوه بر سینه، گلو و جلوی گردن را نیز باز می‌کند.' }
+      ]},
+      { title:'انعطاف عمیق پایین‌تنه', subtitle:'روز پنجم', exercises:[
+        { name:'کبوتر کامل', duration:'هر طرف ۱ دقیقه', howto:'مانند نیم‌کبوتر شروع کنید، اما این‌بار تنه را کاملاً روی پای جلو پایین بیاورید و در همان حالت با نفس‌های عمیق بمانید.', benefit:'یکی از عمیق‌ترین کشش‌های لگن است و معمولاً همراه با آزادسازی احساسی نیز گزارش می‌شود.' },
+        { name:'قورباغه (نیمه)', duration:'۱ دقیقه', howto:'روی چهاردست‌وپا، زانوها را به آرامی به دو طرف باز کنید تا جایی که راحت هستید. تنه را روی ساعدها پایین بیاورید.', benefit:'داخل ران و کشاله‌ی ران را به شکلی که در حرکات دیگر به‌ندرت اتفاق می‌افتد، باز می‌کند.' }
+      ]},
+      { title:'قدرت پا', subtitle:'روز ششم', exercises:[
+        { name:'صندلی (اوتکاتاسانا)', duration:'۳ تکرار، هر بار ۳۰ ثانیه', howto:'بایستید، زانوها را خم کنید انگار می‌خواهید روی صندلی بنشینید، وزن روی پاشنه‌ها. دست‌ها بالای سر کشیده.', benefit:'ران و باسن را به‌شدت درگیر می‌کند و استقامت پا را می‌سازد.' },
+        { name:'جنگجوی سه (ویراباسانا III)', duration:'هر طرف ۲۰ ثانیه', howto:'از ایستاده، وزن را به یک پا منتقل کنید و تنه و پای دیگر را هم‌زمان تا موازی زمین بالا بیاورید، دست‌ها جلو کشیده.', benefit:'قدرت، تعادل و تمرکز را در سخت‌ترین سطح این سه مهارت با هم ترکیب می‌کند.' }
+      ]},
+      { title:'تنفس و ذهن پیشرفته', subtitle:'روز هفتم', exercises:[
+        { name:'نادی شودانا (تنفس متناوب بینی)', duration:'۵ دقیقه', howto:'با انگشت شست سوراخ راست بینی را ببندید، از چپ نفس بکشید. سپس با انگشت حلقه سوراخ چپ را ببندید و از راست بازدم دهید. این الگو را متناوب ادامه دهید.', benefit:'دو نیم‌کره‌ی مغز را متعادل می‌کند و برای آرام کردن ذهن پیش از مدیتیشن عمیق استفاده می‌شود.' },
+        { name:'کاپالابهاتی (نفس آتشین)', duration:'۲ دقیقه', howto:'بازدم‌های کوتاه و قوی از بینی بدهید در حالی که شکم را به داخل می‌کشید؛ دم به‌طور خودکار اتفاق می‌افتد. با سرعت متوسط شروع کنید.', benefit:'انرژی‌بخش است و ذهن را برای تمرکز عمیق‌تر بیدار و صاف می‌کند.' },
+        { name:'مدیتیشن مانترا با ذکر', duration:'۵ دقیقه', howto:'بنشینید و یک عبارت کوتاه معنادار را با هر نفس در ذهن تکرار کنید. اجازه دهید تکرار آرام‌تر و آرام‌تر شود.', benefit:'تمرکز کلامی عمیق‌تری ایجاد می‌کند و برای آماده شدن برای پیچش‌های روزهای بعد مفید است.' }
+      ]},
+      { title:'پیچش عمیق', subtitle:'روز هشتم', exercises:[
+        { name:'نیمه ماتسیندراسانا', duration:'هر طرف ۴۵ ثانیه', howto:'بنشینید، یک پا را روی زانوی پای دیگر بگذارید. دست مخالف را دور زانوی بالا حلقه کنید و تنه را به همان سمت بچرخانید.', benefit:'یکی از قوی‌ترین پیچش‌ها برای ستون فقرات است و به گوارش نیز کمک می‌کند.' },
+        { name:'کشش گربه‌ی رشدیافته', duration:'۱ دقیقه', howto:'از چهاردست‌وپا، یک دست را زیر بدن و به سمت مخالف بلغزانید تا شانه و گونه روی زمین قرار گیرد، دست دیگر همچنان صاف بالای سر.', benefit:'شانه و قفسه‌ی سینه را در جهتی می‌چرخاند که پیچش‌های نشسته پوشش نمی‌دهند.' }
+      ]},
+      { title:'باز کردن عمیق لگن', subtitle:'روز نهم', exercises:[
+        { name:'مارپیچ کبوتر', duration:'هر طرف ۱ دقیقه', howto:'در حالت کبوتر بنشینید، سپس تنه را به آرامی به سمت پای عقب بچرخانید و دست همان طرف را به عقب ببرید تا کشش عمیق‌تری در باسن حس کنید.', benefit:'زوایای متفاوتی از مفصل لگن را که کبوتر ساده پوشش نمی‌دهد، باز می‌کند.' },
+        { name:'زانو به سینه با پیچش', duration:'هر طرف ۳۰ ثانیه', howto:'به پشت دراز بکشید، یک زانو را به سمت سینه‌ی مخالف بکشید و اجازه دهید تنه‌ی پایین کمی بچرخد، شانه‌ها روی زمین باقی می‌مانند.', benefit:'کمر پایین را پس از تمرین‌های سنگین‌تر روز، به‌آرامی رها می‌کند.' }
+      ]},
+      { title:'قدرت بالاتنه', subtitle:'روز دهم', exercises:[
+        { name:'چاتورانگا دانداسانا', duration:'۴ تکرار', howto:'از حالت تخته، با کنترل کامل بدن را پایین بیاورید تا آرنج‌ها زاویه‌ی ۹۰ درجه بسازند، بدون افتادگی شکم. سپس به سگ رو به بالا حرکت کنید.', benefit:'قدرت بازو، سینه و مرکز بدن را به شکلی کاربردی و هماهنگ با نفس می‌سازد.' },
+        { name:'تخته‌ی جانبی', duration:'هر طرف ۲۰ ثانیه', howto:'از تخته، وزن را روی یک دست منتقل کنید و بدن را به پهلو بچرخانید، دست دیگر رو به سقف. پاها روی هم یا جلو-عقب برای تعادل بیشتر.', benefit:'عضلات پهلو و مچ دست را در زاویه‌ای متفاوت از تخته‌ی معمولی تقویت می‌کند.' }
+      ]},
+      { title:'تعادل احساسی', subtitle:'روز یازدهم', exercises:[
+        { name:'مدیتیشن مهر و محبت به خود', duration:'۵ دقیقه', howto:'بنشینید و در ذهن تکرار کنید: «باشد که آرام باشم، باشد که سالم باشم، باشد که در آرامش زندگی کنم». اجازه دهید این جملات را واقعاً حس کنید.', benefit:'اولین گام مدیتیشن متا است که رابطه‌ی فرد با خودش را نرم‌تر می‌کند.' },
+        { name:'مدیتیشن مهر و محبت به دیگران', duration:'۵ دقیقه', howto:'همان جملات را این‌بار برای یک فرد نزدیک، سپس یک فرد خنثی، و در نهایت همه‌ی موجودات تکرار کنید.', benefit:'دایره‌ی همدلی را به‌تدریج گسترش می‌دهد و در پژوهش‌ها با کاهش خشم همراه است.' }
+      ]},
+      { title:'آرام‌سازی عصبی (یین)', subtitle:'روز دوازدهم', exercises:[
+        { name:'پروانه‌ی خوابیده', duration:'۳ دقیقه', howto:'به پشت دراز بکشید، کف پاها را به هم بچسبانید و اجازه دهید زانوها به دو طرف باز و رها شوند. دست‌ها کنار بدن، کاملاً بی‌حرکت بمانید.', benefit:'در سبک یین، ماندن طولانی و بی‌حرکت به بافت‌های عمقی بدن اجازه‌ی رهاسازی می‌دهد.' },
+        { name:'کشش پروانه‌ی نشسته رو به جلو', duration:'۳ دقیقه', howto:'در حالت پروانه‌ی نشسته، تنه را آرام رو به جلو خم کنید و در پایین‌ترین نقطه‌ی راحت برای چند دقیقه بی‌حرکت بمانید.', benefit:'کشش غیرفعال طولانی سیستم عصبی پاراسمپاتیک را فعال و آرامش عمیق ایجاد می‌کند.' }
+      ]},
+      { title:'یکپارچگی حرکت و نفس', subtitle:'روز سیزدهم', exercises:[
+        { name:'جریان وینیاسای ساده', duration:'۵ دقیقه', howto:'حرکات این دو هفته را بدون توقف و فقط با هدایت نفس، پشت سر هم انجام دهید، مانند یک رقص آرام.', benefit:'مهارت‌های جدا آموخته‌شده را در یک تجربه‌ی روان و پیوسته ترکیب می‌کند.' },
+        { name:'مدیتیشن حرکت آگاهانه', duration:'۳ دقیقه', howto:'پس از جریان، بی‌حرکت بایستید و فقط به احساس گرما، ضربان قلب و نفس در بدن‌تان توجه کنید.', benefit:'پل ارتباطی بین تمرین فیزیکی پرانرژی و آرام‌سازی نهایی است.' }
+      ]},
+      { title:'جمع‌بندی نهایی', subtitle:'روز چهاردهم', exercises:[
+        { name:'سلام به خورشید کامل (آرام)', duration:'۳ دور', howto:'همان توالی روز اول را این‌بار بسیار آهسته‌تر و با تمرکز کامل روی هر نفس انجام دهید، بدون عجله برای رسیدن به حرکت بعدی.', benefit:'مرور آگاهانه‌ی تمام آنچه در چهارده روز یاد گرفته‌اید.' },
+        { name:'شاواسانای طولانی', duration:'۱۵ دقیقه', howto:'به پشت دراز بکشید و تمام بدن را کاملاً رها کنید. اگر فکری آمد، فقط اجازه دهید بگذرد.', benefit:'به بدن فرصت می‌دهد تا دو هفته تمرین را در سطح عصبی تثبیت کند.' },
+        { name:'مدیتیشن سکوت کامل', duration:'۱۰ دقیقه', howto:'بنشینید بدون هیچ تکنیک خاصی، فقط حضور داشته باشید. این تمرین نهایی، جمع‌بندی تمام روش‌هایی است که در این دو هفته آموختید.', benefit:'توانایی نشستن با خود بدون نیاز به هیچ ابزاری، هدف نهایی این مسیر است.' }
+      ]}
+    ]
+  },
+  {
+    id: 'meditation7',
+    title: 'دوره تخصصی مدیتیشن: هفت روز',
+    description: 'این دوره فقط شامل تمرین‌های ذهنی است، بدون حرکات فیزیکی یوگا. برای کسی مناسب است که می‌خواهد مستقل از یوگا، مهارت مدیتیشن را از پایه و به‌ترتیب یاد بگیرد.',
+    days: [
+      { title:'آگاهی از نفس', subtitle:'روز اول', exercises:[
+        { name:'مدیتیشن آگاهی از نفس', duration:'۶ دقیقه', howto:'بنشینید، چشم‌ها بسته. فقط احساس فیزیکی نفس را در نوک بینی یا حرکت شکم دنبال کنید، بدون تغییر دادن آن.', benefit:'ساده‌ترین و پایدارترین نقطه‌ی شروع برای تمام مدیتیشن‌های بعدی است.' },
+        { name:'اسکن بدن کوتاه', duration:'۵ دقیقه', howto:'دراز بکشید و توجه را از پا تا سر، عضو به عضو، بدون قضاوت حرکت دهید.', benefit:'حواس را از فکر به حس فیزیکی منتقل می‌کند و پایه‌ی آگاهی بدنی را می‌سازد.' }
+      ]},
+      { title:'شمارش و صدا', subtitle:'روز دوم', exercises:[
+        { name:'مدیتیشن شمارش نفس', duration:'۶ دقیقه', howto:'با هر بازدم از یک تا ده بشمارید، سپس دوباره از یک شروع کنید. گم کردن شمارش طبیعی است.', benefit:'لنگر ملموسی برای ذهن‌های پرحرف فراهم می‌کند.' },
+        { name:'مدیتیشن صدا محور', duration:'۶ دقیقه', howto:'فقط به صداهای اطراف گوش دهید، دور یا نزدیک، بدون نام‌گذاری یا دنبال کردن آن‌ها.', benefit:'توجه را از تمرکز باریک به آگاهی گسترده منتقل می‌کند.' }
+      ]},
+      { title:'مهر و محبت', subtitle:'روز سوم', exercises:[
+        { name:'محبت به خود', duration:'۶ دقیقه', howto:'در ذهن تکرار کنید: «باشد که آرام باشم، باشد که سالم باشم، باشد که در آرامش زندگی کنم». روی حس واقعی این جملات تمرکز کنید.', benefit:'رابطه‌ی فرد با خودش را نرم‌تر و کمتر قضاوتی می‌کند.' },
+        { name:'محبت به دیگران', duration:'۶ دقیقه', howto:'همان جملات را برای یک فرد نزدیک، سپس یک فرد خنثی، و در نهایت همه‌ی موجودات تکرار کنید.', benefit:'دایره‌ی همدلی را به‌تدریج گسترش می‌دهد.' }
+      ]},
+      { title:'واکینگ و خوردن آگاهانه', subtitle:'روز چهارم', exercises:[
+        { name:'مدیتیشن راه رفتن', duration:'۸ دقیقه', howto:'در یک مسیر کوتاه، بسیار آهسته راه بروید و توجه را کاملاً به حس تماس پا با زمین بدهید، بدون فکر به مقصد.', benefit:'مدیتیشن را از حالت نشسته خارج کرده و به حرکت روزمره منتقل می‌کند.' },
+        { name:'خوردن آگاهانه', duration:'۵ دقیقه', howto:'یک تکه غذای کوچک را بسیار آهسته بخورید؛ به بافت، طعم و بوی آن با تمام حواس توجه کنید.', benefit:'حضور ذهن را به یکی از عادی‌ترین کارهای روزانه می‌آورد.' }
+      ]},
+      { title:'تجسم', subtitle:'روز پنجم', exercises:[
+        { name:'تجسم مکان امن', duration:'۷ دقیقه', howto:'چشم‌ها را ببندید و مکانی را تصور کنید که در آن کاملاً امن و آرام هستید؛ جزئیات آن را با ذهن بسازید.', benefit:'ابزاری قابل‌اتکا برای بازگشت به آرامش در لحظات استرس‌زا می‌سازد.' },
+        { name:'تجسم نور آرامش‌بخش', duration:'۵ دقیقه', howto:'نوری گرم و ملایم را تصور کنید که از بالای سر وارد بدن‌تان می‌شود و به‌آرامی هر تنشی را در مسیر خود ذوب می‌کند.', benefit:'تصویرسازی ذهنی، بخش‌هایی از مغز مرتبط با آرامش را فعال می‌کند.' }
+      ]},
+      { title:'مانترا و تنفس جعبه‌ای', subtitle:'روز ششم', exercises:[
+        { name:'تکرار مانترا', duration:'۶ دقیقه', howto:'یک کلمه یا عبارت کوتاه معنادار را در ذهن یا زیر لب، هماهنگ با نفس، پیوسته تکرار کنید.', benefit:'تمرکز کلامی، جایگزین قدرتمندی برای کسانی است که تمرکز صرف بر نفس برایشان دشوار است.' },
+        { name:'تنفس جعبه‌ای (باکس بریثینگ)', duration:'۵ دقیقه', howto:'چهار ثانیه دم، چهار ثانیه نگه داشتن نفس، چهار ثانیه بازدم، چهار ثانیه نگه داشتن خالی؛ این چرخه را تکرار کنید.', benefit:'ریتم منظم آن، برای آرام کردن سریع ذهن در موقعیت‌های پراسترس استفاده می‌شود.' }
+      ]},
+      { title:'آگاهی باز و سکوت', subtitle:'روز هفتم', exercises:[
+        { name:'مدیتیشن آگاهی باز', duration:'۸ دقیقه', howto:'بنشینید بدون تمرکز روی یک شیء خاص؛ فقط اجازه دهید افکار، احساسات و صداها بیایند و بروند، مثل ابرهایی که از آسمان عبور می‌کنند.', benefit:'پیشرفته‌ترین شکل مدیتیشن در این دوره است؛ رها کردن حتی نیاز به یک لنگر ثابت.' },
+        { name:'یوگا نیدرای کامل', duration:'۱۵ دقیقه', howto:'دراز بکشید و طی یک اسکن آرام از تمام بدن، اجازه دهید هر عضو به‌طور کامل رها شود تا به حالتی بین بیداری و خواب برسید.', benefit:'جمع‌بندی نهایی هفت روز است؛ آرامشی عمیق که در عین حال کاملاً هوشیارانه است.' }
+      ]}
+    ]
+  }
+];
+
+const STORAGE_KEY = 'yoga_meditation_checklist_v2';
+const META_KEY = 'yoga_meditation_meta_v2';
+
+function loadJSON(key){ try{ return JSON.parse(localStorage.getItem(key)) || {}; }catch(e){ return {}; } }
+function saveJSON(key, val){ try{ localStorage.setItem(key, JSON.stringify(val)); }catch(e){} }
+
+let state = loadJSON(STORAGE_KEY);
+let meta = loadJSON(META_KEY);
+
+function toPersianDigits(str){
+  const map = {'0':'۰','1':'۱','2':'۲','3':'۳','4':'۴','5':'۵','6':'۶','7':'۷','8':'۸','9':'۹'};
+  return String(str).replace(/[0-9]/g, d=>map[d]);
+}
+
+function exId(courseId, dayIdx, exIdx){ return `${courseId}_d${dayIdx}_e${exIdx}`; }
+
+function courseTotal(course){ return course.days.reduce((sum,d)=>sum+d.exercises.length,0); }
+function courseDone(course){
+  let done = 0;
+  course.days.forEach((day, dayIdx)=>{
+    day.exercises.forEach((_, exIdx)=>{ if(state[exId(course.id, dayIdx, exIdx)]) done++; });
+  });
+  return done;
+}
+function dayProgress(course, dayIdx){
+  const day = course.days[dayIdx];
+  const done = day.exercises.filter((_,i)=>state[exId(course.id, dayIdx, i)]).length;
+  return {done, total: day.exercises.length};
+}
+function overallProgress(){
+  let total = 0, done = 0;
+  COURSES.forEach(c=>{ total += courseTotal(c); done += courseDone(c); });
+  return {total, done};
+}
+function updateOverallRing(){
+  const {total, done} = overallProgress();
+  const pct = total ? Math.round((done/total)*100) : 0;
+  const circumference = 213.6;
+  const offset = circumference - (circumference*pct/100);
+  document.getElementById('progressCircle').style.strokeDashoffset = offset;
+  document.getElementById('progressPct').textContent = toPersianDigits(pct) + '٪';
+}
+function toJalaliStr(date){
+  const j = jalaali.toJalaali(date.getFullYear(), date.getMonth()+1, date.getDate());
+  const months = ["فروردین","اردیبهشت","خرداد","تیر","مرداد","شهریور","مهر","آبان","آذر","دی","بهمن","اسفند"];
+  return `${toPersianDigits(j.jd)} ${months[j.jm-1]} ${toPersianDigits(j.jy)}`;
+}
+function computeEndDate(startISO, durationDays){
+  const start = new Date(startISO + 'T00:00:00');
+  const end = new Date(start);
+  end.setDate(end.getDate() + durationDays - 1);
+  return end;
+}
+function renderJalaliDate(){
+  document.getElementById('jalaliDate').textContent = toJalaliStr(new Date());
+}
+
+function renderCourses(){
+  const container = document.getElementById('courses');
+  container.innerHTML = '';
+
+  COURSES.forEach((course)=>{
+    const total = courseTotal(course);
+    const done = courseDone(course);
+    const pct = total ? Math.round((done/total)*100) : 0;
+    const startISO = meta[course.id] && meta[course.id].start ? meta[course.id].start : '';
+    let endLabel = '—';
+    if(startISO){
+      const endDate = computeEndDate(startISO, course.days.length);
+      endLabel = toJalaliStr(endDate);
+    }
+
+    const courseEl = document.createElement('div');
+    courseEl.className = 'card mb-6 overflow-hidden';
+    courseEl.innerHTML = `
+      <div class="clickable px-5 pt-5 pb-4" data-course-toggle="${course.id}">
+        <div class="flex items-start justify-between gap-3 mb-3">
+          <div class="min-w-0">
+            <h2 class="font-bold text-[color:var(--ivory)]">${course.title}</h2>
+            <p class="text-xs text-[color:var(--ivory)]/45 mt-1">${toPersianDigits(course.days.length)} روز · ${toPersianDigits(total)} تمرین</p>
+          </div>
+          <div class="flex items-center gap-2 flex-shrink-0">
+            <span class="chip">${toPersianDigits(pct)}٪</span>
+            <svg class="chevron w-4 h-4" style="color:var(--gold-soft)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </div>
+        </div>
+        <p class="justify text-xs leading-6 text-[color:var(--ivory)]/60 mb-4">${course.description}</p>
+        <div class="bar-track mb-4"><div class="bar-fill" style="width:${pct}%"></div></div>
+        <div class="flex items-center gap-4 flex-wrap" onclick="event.stopPropagation()">
+          <label class="flex items-center gap-2 text-xs text-[color:var(--ivory)]/60">
+            شروع دوره:
+            <input type="date" class="start-date-input" data-course="${course.id}" value="${startISO}">
+          </label>
+          <span class="text-xs text-[color:var(--ivory)]/60">پایان: <b class="text-[color:var(--gold)]" data-end-label="${course.id}">${endLabel}</b></span>
+        </div>
+      </div>
+      <div class="accordion-body" data-course-body="${course.id}">
+        <div class="px-5 pb-5 pt-1 space-y-3" data-days-container="${course.id}"></div>
+      </div>
+    `;
+    container.appendChild(courseEl);
+
+    const daysContainer = courseEl.querySelector(`[data-days-container="${course.id}"]`);
+    course.days.forEach((day, dayIdx)=>{
+      daysContainer.appendChild(renderDayCard(course, dayIdx, day));
+    });
+  });
+
+  attachCourseListeners();
+  attachDayListeners();
+  attachExerciseListeners();
+  attachDateListeners();
+}
+
+function renderDayCard(course, dayIdx, day){
+  const {done, total} = dayProgress(course, dayIdx);
+  const dayFull = done === total;
+  const el = document.createElement('div');
+  el.className = 'subcard overflow-hidden';
+  el.innerHTML = `
+    <div class="clickable flex items-center justify-between px-4 py-3" data-day-toggle="${course.id}_${dayIdx}">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 border" data-day-badge="${course.id}_${dayIdx}" style="border-color:${dayFull ? 'var(--gold)' : 'var(--line)'}; background:${dayFull ? 'rgba(201,162,75,0.15)' : 'rgba(255,255,255,0.02)'}">
+          <span class="text-xs font-bold" style="color:${dayFull ? 'var(--gold)' : 'var(--ivory)'}">${toPersianDigits(dayIdx+1)}</span>
+        </div>
+        <div>
+          <p class="font-semibold text-sm text-[color:var(--ivory)]">${day.title}</p>
+          <p class="text-[11px] text-[color:var(--ivory)]/40">${day.subtitle}</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="chip" data-day-chip="${course.id}_${dayIdx}">${toPersianDigits(done)}/${toPersianDigits(total)}</span>
+        <svg class="chevron w-3.5 h-3.5" style="color:var(--gold-soft)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 9l6 6 6-6"/>
+        </svg>
+      </div>
+    </div>
+    <div class="accordion-body" data-day-body="${course.id}_${dayIdx}">
+      <div class="px-4 pb-4 pt-1 space-y-2">
+        ${day.exercises.map((ex, exIdx)=>renderExercise(course.id, dayIdx, exIdx, ex)).join('')}
+      </div>
+    </div>
+  `;
+  return el;
+}
+
+function renderExercise(courseId, dayIdx, exIdx, ex){
+  const id = exId(courseId, dayIdx, exIdx);
+  const checked = !!state[id];
+  return `
+    <div class="rounded-xl border" style="border-color:var(--line); background:rgba(0,0,0,0.15)">
+      <div class="flex items-start gap-3 p-3">
+        <input type="checkbox" class="ex-checkbox mt-0.5" data-ex="${id}" ${checked ? 'checked' : ''}>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center justify-between gap-2 clickable ex-toggle" data-ex="${id}">
+            <div class="min-w-0">
+              <p class="font-semibold text-sm ${checked ? 'done-strike' : ''}" data-label="${id}">${ex.name}</p>
+              <p class="text-xs text-[color:var(--sage)] mt-0.5">${ex.duration}</p>
+            </div>
+            <svg class="ex-chevron w-4 h-4 flex-shrink-0" style="color:var(--gold-soft)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </div>
+          <div class="ex-detail" data-detail="${id}">
+            <div class="pt-3 text-xs leading-6 text-[color:var(--ivory)]/70 space-y-2">
+              <p class="justify"><span class="text-[color:var(--gold)] font-medium">روش انجام: </span>${ex.howto}</p>
+              <p class="justify"><span class="text-[color:var(--gold)] font-medium">فایده: </span>${ex.benefit}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function attachCourseListeners(){
+  document.querySelectorAll('[data-course-toggle]').forEach(header=>{
+    header.addEventListener('click', ()=>{
+      const id = header.getAttribute('data-course-toggle');
+      const body = document.querySelector(`[data-course-body="${id}"]`);
+      const chevron = header.querySelector('.chevron');
+      body.classList.toggle('open');
+      chevron.classList.toggle('rot');
+    });
+  });
+}
+function attachDayListeners(){
+  document.querySelectorAll('[data-day-toggle]').forEach(header=>{
+    header.addEventListener('click', ()=>{
+      const id = header.getAttribute('data-day-toggle');
+      const body = document.querySelector(`[data-day-body="${id}"]`);
+      const chevron = header.querySelector('.chevron');
+      body.classList.toggle('open');
+      chevron.classList.toggle('rot');
+    });
+  });
+}
+function attachExerciseListeners(){
+  document.querySelectorAll('.ex-toggle').forEach(btn=>{
+    btn.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      const id = btn.getAttribute('data-ex');
+      const detail = document.querySelector(`[data-detail="${id}"]`);
+      detail.classList.toggle('open');
+      btn.querySelector('.ex-chevron').classList.toggle('rot');
+    });
+  });
+  document.querySelectorAll('.ex-checkbox').forEach(cb=>{
+    cb.addEventListener('change', ()=>{
+      const id = cb.getAttribute('data-ex');
+      state[id] = cb.checked;
+      saveJSON(STORAGE_KEY, state);
+      const label = document.querySelector(`[data-label="${id}"]`);
+      if(label) label.classList.toggle('done-strike', cb.checked);
+      updateOverallRing();
+      refreshCourseAndDay(id);
+    });
+  });
+}
+function attachDateListeners(){
+  document.querySelectorAll('.start-date-input').forEach(input=>{
+    input.addEventListener('change', ()=>{
+      const courseId = input.getAttribute('data-course');
+      if(!meta[courseId]) meta[courseId] = {};
+      meta[courseId].start = input.value;
+      saveJSON(META_KEY, meta);
+      const course = COURSES.find(c=>c.id===courseId);
+      const endLabelEl = document.querySelector(`[data-end-label="${courseId}"]`);
+      if(input.value){
+        const endDate = computeEndDate(input.value, course.days.length);
+        endLabelEl.textContent = toJalaliStr(endDate);
+      } else {
+        endLabelEl.textContent = '—';
+      }
+    });
+  });
+}
+
+function refreshCourseAndDay(id){
+  const parts = id.split('_');
+  const courseId = parts[0];
+  const dayIdx = parseInt(parts[1].replace('d',''));
+  const course = COURSES.find(c=>c.id===courseId);
+
+  const {done, total} = dayProgress(course, dayIdx);
+  const dayFull = done === total;
+  const badge = document.querySelector(`[data-day-badge="${courseId}_${dayIdx}"]`);
+  const chip = document.querySelector(`[data-day-chip="${courseId}_${dayIdx}"]`);
+  if(badge){
+    badge.style.borderColor = dayFull ? 'var(--gold)' : 'var(--line)';
+    badge.style.background = dayFull ? 'rgba(201,162,75,0.15)' : 'rgba(255,255,255,0.02)';
+    badge.querySelector('span').style.color = dayFull ? 'var(--gold)' : 'var(--ivory)';
+  }
+  if(chip) chip.textContent = `${toPersianDigits(done)}/${toPersianDigits(total)}`;
+
+  const cTotal = courseTotal(course);
+  const cDone = courseDone(course);
+  const pct = cTotal ? Math.round((cDone/cTotal)*100) : 0;
+  const courseHeader = document.querySelector(`[data-course-toggle="${courseId}"]`);
+  const courseChip = courseHeader.querySelector('.chip');
+  courseChip.textContent = toPersianDigits(pct) + '٪';
+  const barFill = courseHeader.querySelector('.bar-fill');
+  barFill.style.width = pct + '%';
+}
+
+renderJalaliDate();
+renderCourses();
+updateOverallRing();
+</script>
+</body>
+</html>
